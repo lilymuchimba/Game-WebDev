@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>INST 377 - Lily Muchimba</title>
+    <link rel="stylesheet" href="assignment-1.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="bar">
+        <h1>Contact Us</h1>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="assignment-1.html">Home</a></li>
+            <li><a href="assignment-1-games.html">Games</a></li>
+            <li><a href="assignment-1-contact.html">Contact Us!</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <body>
+    
+    <h2>Have questions, feel free to reach out!</h2>
+    <!-- User Name Details -->
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" required>
+    <br>
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" required>
+    <br>
+    <hr>
+    
+    <!-- Inquiry Date -->
+    <label for="inquiryDate">Inquiry Date:</label>
+    <input type="date" id="inquiryDate">
+    <br>
+    <br>
+    
+    <!-- Inquiry Concern -->
+    <form name="contactForm" onsubmit="return formValidation()" method="post">
+        <label for="concern">Concerns:</label><br>
+        <textarea id="concern" name="concern" rows="4" cols="50" placeholder="Let us know your concern!"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Javascript Code -->
+    <script type="text/javascript">
+        function formValidation() {
+            const concernInput = document.getElementById("concern").value.trim();
+            const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            // if any special characters
+            if (validationRegex.test(concernInput)) {
+                alert("No special characters allowed!");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            window.location.href = "assignment-1-success.html";
+            return false;
+        }
+    </script>
+
+
+
+    <footer id="bar">
+        <p>Copyright of Lily Muchimba 2025</p>
+    </footer>
+    
+</html>

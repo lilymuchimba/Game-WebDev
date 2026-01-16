@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <title>INST 377 - Lily Muchimba</title>
+    <link rel="stylesheet" href="assignment-1.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="bar">
+        <h1>Games</h1>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="assignment-1.html">Home</a></li>
+            <li><a href="assignment-1-games.html">Games</a></li>
+            <li><a href="assignment-1-contact.html">Contact Us!</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <div class="content-area1">
+            <h2>Rock, Paper, Scissors</h2>
+
+            <form onsubmit="return Game()";>
+                <label for="choice">Your Choice:</label>
+                <select id="choice" name="choice" required>
+                    <option value="none">--Please Select--</option>
+                    <option value="rock">Rock</option>
+                    <option value="paper">Paper</option>
+                    <option value="scissors">Scissors</option></select>
+                <input type="submit" value="Submit!">
+            </form>
+
+            <div class="content-box1">
+                <h2>You Chose:</h2>
+                <p id="user-choice"></p>
+            </div>
+
+            <div class="content-box2">
+                <h2>Computer Chose:</h2>
+                <p id="computer-choice"></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function Game() {
+            const userChoice = document.getElementById("choice").value;
+            const computerOptions = ["rock", "paper", "scissors", "spock"];
+            const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+            document.getElementById("user-choice").innerText = userChoice;
+            document.getElementById("computer-choice").innerText = computerChoice;
+
+            let result = "";
+
+            // incase of "none" option
+            if (userChoice === "none") {
+                alert("Please select Rock, Paper or Scissors!");
+                return false;
+            }
+
+            if (computerChoice === "spock") {
+                result = "computer";
+            } else if (userChoice === computerChoice) {
+                result = "tie";
+            } else if (
+                (userChoice === "rock" && computerChoice === "scissors") ||
+                (userChoice === "paper" && computerChoice === "rock") ||
+                (userChoice === "scissors" && computerChoice === "paper")
+            ) {
+                result = "user!";
+            } else {
+                result = "computer";
+            }
+
+            // background color change
+            if (result === "user") {
+                alert("You win!");
+                document.body.style.backgroundColor = "green";
+            } else if (result === "computer") {
+                alert("Computer wins!");
+                document.body.style.backgroundColor = "red";
+            } else { 
+                alert("It's a tie!") 
+                document.body.style.backgroundColor = "blue";
+            }
+
+            return false;
+        }
+    </script>
+
+
+    <!-- Footer -->
+    <footer id="bar">
+        <p>Copyright of Lily Muchimba 2025</p>
+    </footer>
+    
+</body>
+
+</html>
